@@ -9,7 +9,7 @@
 
 body 
 {
-    background:#254a75;
+    background:rgb(29, 58, 92);
     padding-top:30px;
     font-family: Roboto;
 }
@@ -43,8 +43,37 @@ body
    font-family: Roboto;
    font-weight:100;
    font-size:50px;
+   margin-bottom:20px;
 }
 
+.total-display
+{
+    text-align: center;
+    margin:0 auto;
+    padding:20px;
+}
+.total-display > h2
+{
+    display:inline-block;
+    padding:15px;
+    font-weight: 100;
+    width:30%;
+    color:white;
+    font-size:18px;
+    text-align: right;
+
+    
+  
+}
+#total-income
+{
+    background-color:#254a75;
+}
+#total-expense
+{
+    background-color:#a70000;
+    
+}
 #uio {
     float:left;
     width:50%;
@@ -77,7 +106,7 @@ body
     border-radius:2px;
     padding: 10px;
     margin: 0 2 0 2;
-    outline:none;
+    
 }
 
 .user-input i
@@ -104,6 +133,24 @@ body
     color:#000;
 }
 
+#description
+{
+    outline-color: #254a75;
+}
+
+#value-income
+{
+    outline-color: #254a75;
+}
+
+#description-exp
+{
+    outline-color: #a70000;
+}
+#value-expense
+{
+    outline-color: #a70000;
+}
 #description, #description-exp
 {
     width:250px;
@@ -135,9 +182,10 @@ ul
     width:50%;
     float:left;
     text-align: center;
-    color:rgb(134, 10, 10);
+    
+    color:#254a75;
     padding:20px;
-    background:rgb(214, 214, 214);
+    /*background:rgb(214, 214, 214);*/
 }
 
 .results-right
@@ -146,9 +194,9 @@ ul
     width:50%;
     float:left;
     text-align: center;
-    color:#254a75;
+    color:rgb(134, 10, 10);
     padding:20px;
-    background:rgb(182, 182, 182);
+    /*background:rgb(182, 182, 182);*/
 }
 
 .results-left > h3
@@ -173,7 +221,7 @@ ul
 
 .output-left 
 {
-    background:rgb(149, 149, 149);
+    /*background:rgb(149, 149, 149);*/
     height:245px;
     width:50%;
     float:left;
@@ -181,7 +229,7 @@ ul
 }
 .output-right
 {
-    background:rgb(197, 197, 197);
+    /*background:rgb(197, 197, 197);*/
     height:245px;
     width:50%;
     float:right;
