@@ -1,23 +1,28 @@
-//variables
+//variables for total values
 let totalIncome = $("#total-income");
 let totalExpense = $("#total-expense");
-
+//income inoput
 let incomeDes = $("#description");
 let incomeVal = $("#value-income");
-let incomeCheck = $("income-check");
-
+let incomeCheck = $("#income-check");
+//expense input
 let expenseDes = $("#description-exp");
 let expenseVal = $("#value-expense");
-let expCheck = $("exp-check");
+let expenseCheck = $("#exp-check");
 
+//         Controller interface         //
 
-//testing
-$(totalIncome).on("click", function() {
-    //testing DOM element
-    console.log("total income clicked");
+//updates the array of expenses and total income displayed in header 
+$(incomeCheck).on("click", function(){
+    console.log("user clicked on income check");
+    //updating total income 
+    $(totalIncome).text("$"+$(incomeVal).val());
+    //adding to array og expenses
 });
-
-$(totalExpense).on("click", function() {
-    //testing DOM element
-    console.log("total expense clicked");
+//updates the array of expenses and total income displayed in header 
+$(expenseCheck).on("click", function(){
+    console.log("user clicked on expense check");
+    //updating total income 
+    $(totalExpense).text("$"+$(expenseVal).val());
+    //adding to array og expenses
 });
