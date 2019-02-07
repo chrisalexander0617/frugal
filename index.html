@@ -12,46 +12,46 @@
                 <h1>FRUGAL</h1>
 
                 <div class="total-display">
-                    <h2 id = "total-income">TOTALINCOME</h2>
-                    <h2 id = "total-expense">TOTALEXPENSE</h2>
+                    <span id="income-label">INCOME</span>
+                    <h2 id = "total-income">-</h2>
+                    <span id="expense-label">EXPENSES</span>
+                    <h2 id = "total-expense">-</h2>
                 </div>
            </div>
            
                 <div id="uio" class="user-input">
-                        <input id = "description" type="text" placeholder="Enter Description">
-                        <input id = "value-income" type="text" placeholder="$$$">
-                        <i id = "income-check" class="fas fa-check-square"></i>
+                        <input id = "description" type="text" placeholder="Enter Description" required>
+                        <input id = "value-income" type="number" placeholder="$$$" required min=0>
+                        <i id = "income-check" class="fas fa-plus-square"></i>
+                        
                 </div>
                     <div id="uit" class="user-input">
-                            <input id = "description-exp" type="text" placeholder="Enter Description">
-                            <input id = "value-expense" type="text" placeholder="$$$">
-                            <i id = "exp-check" class="fas fa-check-square"></i>
+                            <input id = "description-exp" type="text" placeholder="Enter Description" required>
+                            <input id = "value-expense" type="number" placeholder="$$$" required min=0>
+                            <i id = "exp-check" class="fas fa-plus-square"></i>
+                            
                     </div>
             
                         <div class="results-left">
                             <h3>INCOME</h3>
-                                <ul>
-                                    <li>TEST</li>
-                                    <li>TEST</li>
-                                    <li>TEST</li>
+                                <ul id = "income-ul">
+                                   
                                 </ul>    
                         </div>
 
                             <div class="results-right">
                                 <h3>EXPENSES</h3>
-                                    <ul>
-                                        <li>TEST</li>
-                                        <li>TEST</li>
-                                        <li>TEST</li>
+                                    <ul id= "expense-ul">
+                                       
                                     </ul>
                             </div>
 
                                 <div class="output-left">
-                                    <h1>Test</h1>
+                                    <h1></h1>
                                 </div>
                                     <div class="output-right">
-                                            <h1>Test2</h1>
-                                        </div>
+                                            <h1></h1>
+                                    </div>
         </div>
 
        
