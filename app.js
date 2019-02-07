@@ -1,101 +1,111 @@
-//variables for total values
+//VARIABLES FOR TOTAL VALUES
 let totalIncome = $("#total-income");
 let totalExpense = $("#total-expense");
+let sum = 0;
 
-//income input
+//INCOME INPUT
 let incomeDes = $("#description");
 let incomeVal = $("#value-income");
 let incomeCheck = $("#income-check");
 let incomeDescription = $("#description");
 let defaultIncome = 0;
 
-//expense input
+//EXPENSE INPUT
 let expenseDes = $("#description-exp");
 let expenseVal = $("#value-expense");
 let expenseCheck = $("#exp-check");
 let expenseDescription = $("#description-exp");
 let defaultExpense = 0;
 
+// VALUE DEFAULTS //
+$("#budget").text("$" + sum); 
+
 //  Controller interface  //
 
 //updates the ul of expenses and total income displayed in header 
 $(incomeCheck).on("click", function(){
     console.log("user clicked on income check");
-
    
-
-    //updating total income 
-    console.log(defaultExpense)
-    defaultIncome +=  parseInt($(incomeVal).val());
-    totalIncome.text("$"+ defaultIncome)
-    console.log("The expense Value is " + defaultIncome);
-
-     //checking for empty text inputs 
+     //CHECKING FOR EMPTY INPUTS 
      if($(incomeVal).val() == "" || $(incomeDescription).val() == "")
      {
-        return alert("empty input");
+
+      //CHANGING EMPTY INPUTS INTO INT 0
+      $(incomeVal).val() = 0;
+      $(incomeDescription).val() = "";
+      $("#budget").text("$" + (defaultIncome + 0));
+         
      }
+    //UPDATING TOTAL INCOME
+    defaultIncome +=  parseInt($(incomeVal).val());
+    totalIncome.text("$"+ defaultIncome)
+    console.log("The income Value is " + defaultIncome);
+    console.log(defaultIncome)
+   
+    $("#budget").text("$" + defaultIncome);
 
     //taking value of description  
     var incomeText = $(incomeDescription).val();
+    var incomeInt = $(incomeVal).val();
     console.log("The income text is " + incomeText);
 
-    //creating a list item from that value 
-    $("#income-ul").append("<li>" + incomeText+ "</li>");
-
-    //clearing the description box
+    //CREATING LIST ITEM
+    $("#income-ul").append("<li>" + incomeText + " " + incomeInt + "</li>");
+    //CLEARING DESCRIPTION BOX
     $(incomeDescription).val("");
-    //clearing value input
+
+    //CLEARING INPUT VALUE
     $(incomeVal).val("");
 
-    
+    //ADDING VALUE TO TOTAL BUDGET IN HEADER
+    $("#budget").text("$" + (defaultIncome - defaultExpense));
 
-
-    //enter code here....
-
+//END OF CLICK EVENT (INCOME)
 });
 
 
-//updates the ul of expenses and total income displayed in header 
+//CALCULATING EXPENSES
 $(expenseCheck).on("click", function(){
     console.log("user clicked on expense check");
+   
+   //CHECKING FOR EMPTY INPUTS
+   if($(expenseVal).val() == "" || $(expenseDes).val() == "")
+   {
+   //CHANGING EMPTY INPUTS INTO INT 0
+   $(expenseVal).val() = 0 
+   $(expenseDes).val() = ""
+   $("#budget").text("$" + (defaultExpense + 0));
+   }
 
-    //updating total income 
-    //$(totalExpense).text("$"+$(expenseVal).val());
-
-    console.log(defaultExpense)
+   //ADDING  THE EXPENSE
     defaultExpense +=  parseInt($(expenseVal).val());
     totalExpense.text("$"+ defaultExpense)
     console.log("The expense Value is " + defaultExpense);
-    
+    console.log(defaultExpense)
+   
+   
 
-
-
-
-
-    
-
-     //checking for empty text inputs 
-     if($(expenseVal).val() == "" || $(expenseDescription).val() == "")
-     {
-        return alert("empty input");
-     }
-
-
-    //taking value of description  
+ 
+    //TAKING THE VALUE OF THE DESCRIPTION
     var expenseText = $(expenseDescription).val();
-    console.log("The income text is " + expenseText);
+    var expenseInt = $(expenseVal).val();
+    console.log("The expensetext is " + expenseText);
+    
 
-    //creating a list item from that value 
-    $("#expense-ul").append("<li>" + expenseText+ "</li>");
+    //CREATEING A LIST ITEM FOR EACH EXPENSE
+    $("#expense-ul").append("<li>" + expenseText + " " + expenseInt + "</li>");
 
-    //clearing the description box
+    //CLEARING THE DESCRIPTION BOX
     $(expenseDescription).val("");
 
 
 
-      //enter code here....
-
+      //PRINTING THE TOTAL BUDGET IN HEADER
+     $("#budget").text("$" + (defaultIncome - defaultExpense));
+      
+//END OF EXPENSE CLICK EVENT 
 });
+
+
 
 
