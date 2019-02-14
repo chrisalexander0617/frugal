@@ -1,33 +1,50 @@
+<!DOCTYPE html>
+
 <html>
 
     <head>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-        <link rel="stylesheet" href="frugal.css">
+        <link rel="stylesheet" href="css/frugal.css">
         <title>Frugle | Your Money Buddy</title>
     </head>
 
     <body>
        <div class="app">
            <div class="header">
-                <h1>FRUGAL</h1>
+               <!-- <h1>FRUGAL</h1>-->
+                    <div class="total-budget">
+                        <!--The total budget calculated by the (income - expenses) goes here-->
+                    <h1 id="budget">0</h1>
 
-                <div class="total-display">
-                    <span id="income-label">INCOME</span>
-                    <h2 id = "total-income">-</h2>
-                    <span id="expense-label">EXPENSES</span>
-                    <h2 id = "total-expense">-</h2>
-                </div>
+                    </div>
+
+                        <!--diplays the income and expenses in header-->
+                        <div class="total-display">
+
+                            <div class="income-holder">
+                                    <span id="income-label">INCOME</span>
+                                    <span id = "total-income">$0.00</span>
+                            </div>
+                           
+                            <div class="expense-holder">
+                                <span id="expense-label">EXPENSES</span>
+                                <span id = "total-expense">$0.00</span>
+                            </div>
+                           
+                        </div>
            </div>
+
+           <!--USER INTERFACE-->
            
                 <div id="uio" class="user-input">
-                        <input id = "description" type="text" placeholder="Enter Description" required>
-                        <input id = "value-income" type="number" placeholder="$$$" required min=0>
+                        <input id = "description" type="text" placeholder="Paycheck, Bonus, etc" required maxlength="16">
+                        <input id = "value-income" type="number" placeholder="$" required min=0 max=999999999> 
                         <i id = "income-check" class="fas fa-plus-square"></i>
                         
                 </div>
                     <div id="uit" class="user-input">
-                            <input id = "description-exp" type="text" placeholder="Enter Description" required>
-                            <input id = "value-expense" type="number" placeholder="$$$" required min=0>
+                            <input id = "description-exp" type="text" placeholder="Bills, Taxes, etc" required maxlength="16">
+                            <input id = "value-expense" type="number" placeholder="$" required min=0 max=999999999>
                             <i id = "exp-check" class="fas fa-plus-square"></i>
                             
                     </div>
@@ -56,6 +73,6 @@
 
        
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="app.js"></script>
+        <script src="lib/app.js"></script>
     </body>
 </html>
