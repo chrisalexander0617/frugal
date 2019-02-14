@@ -50,7 +50,31 @@ $(incomeCheck).on("click", function(){
     console.log("The income text is " + incomeText);
 
     //CREATING LIST ITEM
-    $("#income-ul").append("<li>" + incomeText + " " + incomeInt + "</li>");
+    $("#income-ul").append("<li>" + "<div>" + incomeText + "</div>" + "<div class='mid-div'>" + "+ " + incomeInt + "</div>" + "<div class='last'>" + "<i class='fas fa-minus-square'></i>" + "</div>" +  "</li>");
+    //minus show on mouse hover
+    $("li").mouseenter(function(){
+        $(this).find("i").css("visibility", "visible");
+    });
+    $("li").mouseleave(function(){
+        $(this).find("i").css("visibility", "hidden")
+    });
+
+
+    $("#income-ul").find("i").on("click", function(){
+        event.stopPropagation();
+        console.log("Removing li");
+        
+        console.log("This li income value is " + incomeInt);
+        $(this).closest('li').remove();
+        defaultIncome = defaultIncome - incomeInt;
+        $("#budget").text("$" + defaultIncome);
+
+        //resetting income text value to prevent multiple addition
+        incomeInt =0;
+    });
+ 
+ 
+
     //CLEARING DESCRIPTION BOX
     $(incomeDescription).val("");
 
@@ -93,10 +117,36 @@ $(expenseCheck).on("click", function(){
     
 
     //CREATEING A LIST ITEM FOR EACH EXPENSE
-    $("#expense-ul").append("<li>" + expenseText + " " + expenseInt + "</li>");
+    $("#expense-ul").append("<li>" + "<div>" + expenseText + "</div>" + "<div class='mid-div'>" + "- " + expenseInt + "</div>" + "<div class='last'>" + "<i class='fas fa-minus-square'></i>" + "</div>" +  "</li>");
+    
+    $("li").mouseenter(function(){
+        $(this).find("i").css("visibility", "visible");
+    });
+    $("li").mouseleave(function(){
+        $(this).find("i").css("visibility", "hidden")
+    });
+
+
+    $("#expense-ul").find("i").on("click", function(){
+   
+        console.log("Removing li");
+        
+        console.log("This li expense value is " + expenseInt);
+        $(this).closest('li').remove();
+        defaultExpense = defaultExpense - expenseInt;
+
+        $("#budget").text("$" + (defaultIncome - defaultExpense));
+        
+        //resetting income text value to prevent multiple addition
+        incomeInt =0;
+        expenseInt = 0;
+    });
+ 
+ 
 
     //CLEARING THE DESCRIPTION BOX
     $(expenseDescription).val("");
+    $(expenseVal).val("");
 
 
 
