@@ -61,7 +61,7 @@ i
 .header 
 {
     height:350px;
-    background:url("img/mountains.jpg");
+    background:url("mountains.jpg");
     background-size:cover;
     background-position-y:-200px;
     color:#000;
