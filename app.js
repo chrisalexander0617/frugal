@@ -38,7 +38,7 @@ $(incomeCheck).on("click", function(){
      }
     //UPDATING TOTAL INCOME
     defaultIncome +=  parseInt($(incomeVal).val());
-    totalIncome.text("$"+ defaultIncome)
+    totalIncome.text("$"+ defaultIncome);
     console.log("The income Value is " + defaultIncome);
     console.log(defaultIncome)
    
@@ -59,18 +59,20 @@ $(incomeCheck).on("click", function(){
         $(this).find("i").css("visibility", "hidden")
     });
 
-
+    //REMOVING LIST ITEMS
     $("#income-ul").find("i").on("click", function(){
-        event.stopPropagation();
+        
         console.log("Removing li");
         
         console.log("This li income value is " + incomeInt);
         $(this).closest('li').remove();
         defaultIncome = defaultIncome - incomeInt;
+
         $("#budget").text("$" + defaultIncome);
+        totalIncome.text("$"+ defaultIncome);
 
         //resetting income text value to prevent multiple addition
-        incomeInt =0;
+        incomeInt = S0;
     });
  
  
@@ -105,7 +107,7 @@ $(expenseCheck).on("click", function(){
     defaultExpense +=  parseInt($(expenseVal).val());
     totalExpense.text("$"+ defaultExpense)
     console.log("The expense Value is " + defaultExpense);
-    console.log(defaultExpense)
+    console.log(defaultExpense);
    
    
 
@@ -122,6 +124,7 @@ $(expenseCheck).on("click", function(){
     $("li").mouseenter(function(){
         $(this).find("i").css("visibility", "visible");
     });
+
     $("li").mouseleave(function(){
         $(this).find("i").css("visibility", "hidden")
     });
@@ -133,12 +136,14 @@ $(expenseCheck).on("click", function(){
         
         console.log("This li expense value is " + expenseInt);
         $(this).closest('li').remove();
+
         defaultExpense = defaultExpense - expenseInt;
 
         $("#budget").text("$" + (defaultIncome - defaultExpense));
+        totalExpense.text("$"+ defaultExpense);
         
         //resetting income text value to prevent multiple addition
-        incomeInt =0;
+        incomeInt = 0;
         expenseInt = 0;
     });
  
